@@ -5,7 +5,7 @@
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0 d-flex justify-content-between">
-                <h6>Create Students Data</h6>
+                <h6>Create Student Data</h6>
                 <a href="{{route('indexstudent')}}" class="btn btn-success">Back</a>
             </div>
             <div class="card-body px-0 pt-0 pb-2">

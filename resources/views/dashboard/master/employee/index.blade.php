@@ -1,5 +1,5 @@
 @extends('dashboard.layout.master')
-@section('title', 'Employee Data')
+@section('title', 'Employees Data')
 @section('content')
     <div class="row">
         <div class="col-12">
