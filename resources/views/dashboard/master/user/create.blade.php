@@ -20,10 +20,10 @@
                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" value="{{old('email', '')}}">
                     </div>
                     <div class="mb-3 mt-3">
-                        <label for="session" class="form-label">Session :</label>
+                        <label for="level" class="form-label">Level :</label>
                         <select class="form-select" name="level" id="level">
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
                         </select>
                     </div>
                     <div class="mb-3 mt-3">

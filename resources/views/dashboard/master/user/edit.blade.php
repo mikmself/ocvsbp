@@ -19,10 +19,13 @@
                         <label for="email" class="form-label">Email :</label>
                         <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" value="{{old('email', $user->email)}}">
                     </div>
-                    <select class="form-select" name="level" id="level">
-                        <option value="user" {{$user->level == "user" ? "selected" : ""}}>User</option>
-                        <option value="admin" {{$user->level == "admin" ? "selected" : ""}}>Admin</option>
-                    </select>
+                    <div class="mb-3 mt-3">
+                        <label for="level" class="form-label">Level :</label>
+                        <select class="form-select" name="level" id="level">
+                            <option value="user" {{$user->level == "user" ? "selected" : ""}}>User</option>
+                            <option value="admin" {{$user->level == "admin" ? "selected" : ""}}>Admin</option>
+                        </select>
+                    </div>
                     <div class="mb-3 mt-3">
                         <label for="newpassword" class="form-label">New Password :</label>
                         <input type="text" class="form-control" id="newpassword" placeholder="Enter New Password" name="newpassword" value="{{old('newpassword', '')}}">
