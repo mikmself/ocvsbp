@@ -24,6 +24,7 @@
                         <select class="form-select" name="level" id="level">
                             <option value="user" {{$user->level == "user" ? "selected" : ""}}>User</option>
                             <option value="admin" {{$user->level == "admin" ? "selected" : ""}}>Admin</option>
+                            <option value="superadmin" {{$user->level == "superadmin" ? "selected" : ""}}>Superadmin</option>
                         </select>
                     </div>
                     <div class="mb-3 mt-3">

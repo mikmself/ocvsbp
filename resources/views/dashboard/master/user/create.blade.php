@@ -24,6 +24,7 @@
                         <select class="form-select" name="level" id="level">
                             <option value="user">User</option>
                             <option value="admin">Admin</option>
+                            <option value="superadmin">Superadmin</option>
                         </select>
                     </div>
                     <div class="mb-3 mt-3">

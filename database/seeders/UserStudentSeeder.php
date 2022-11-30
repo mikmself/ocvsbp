@@ -15,8 +15,8 @@ class UserStudentSeeder extends Seeder
         $iduser = Str::uuid();
         User::create([
             'id' => $iduser,
-            'name' => 'Muhamad Irga Khoirul Mahfis',
-            'email' => 'mikmself@gmail.com',
+            'name' => 'Eko Susilo',
+            'email' => 'ekosusilo@gmail.com',
             'password' => Hash::make('student123'),
             'is_voted' => 'false'
         ]);
@@ -24,8 +24,8 @@ class UserStudentSeeder extends Seeder
             'id' => Str::uuid(),
             'user_id' => $iduser,
             'session_id' => '3',
-            'name' => 'Muhamad Irga Khoirul Mahfis',
-            'nis' => '18058',
+            'name' => 'Eko Susilo',
+            'nis' => '18057',
             'nisn' => '8716728723',
         ]);
 
@@ -42,7 +42,7 @@ class UserStudentSeeder extends Seeder
             'user_id' => $iduser2,
             'session_id' => '2',
             'name' => 'Didi Prasetyo',
-            'nis' => '18057',
+            'nis' => '18058',
             'nisn' => '2767638948',
         ]);
 
