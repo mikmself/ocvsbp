@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentsExport;
+use App\Imports\UsersStudentsImport;
 use App\Models\Session;
 use App\Models\Student;
 use App\Models\User;
@@ -10,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Throwable;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserStudentController extends Controller
 {
@@ -140,5 +143,28 @@ class UserStudentController extends Controller
             toastr()->error('student data not found');
             return redirect(route('indexmasterstudent'));
         }
+    }
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.xlsx');
+    }
+    public function import(Request $request){
+        if($request->hasFile('file')){
+            $isImported = Excel::import(new UsersStudentsImport, $request->file('file'));
+            if($isImported){
+                toastr()->success('students data successfully imported');
+                return back();
+            }else{
+                toastr()->error('students data failed to import');
+            }
+        }else{
+            toastr()->error('data not valid!');
+        }
+    }
+    public function download(){
+        $path = public_path('/excel/exampleStudent.xlsx');
+        $fileName = 'exampleStudent.xlsx';
+        toastr()->success('example file successfully downloaded');
+        return response()->download($path, $fileName);
     }
 }

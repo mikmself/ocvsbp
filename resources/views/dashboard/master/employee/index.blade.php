@@ -6,7 +6,10 @@
             <div class="card mb-4">
                 <div class="card-header pb-0 d-flex justify-content-between">
                     <h6>Employees Data</h6>
-                    <a href="{{route('createemployee')}}" class="btn btn-success">Create</a>
+                    <div class="">
+                        <a href="{{route('exportemployee')}}" class="btn btn-secondary">Export</a>
+                        <a href="{{route('createemployee')}}" class="btn btn-success">Create</a>
+                    </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">

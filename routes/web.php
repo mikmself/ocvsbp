@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserEmployeeController;
 use App\Http\Controllers\UserStudentController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,9 @@ Route::prefix('/admin/dashbaord')->group(function () {
         Route::get('/edit/{id}',[UserStudentController::class,'edit'])->name('editstudent');
         Route::post('/update/{id}',[UserStudentController::class,'update'])->name('updatestudent');
         Route::get('/destroy/{id}',[UserStudentController::class,'destroy'])->name('destroystudent');
+        Route::get('/export',[UserStudentController::class,'export'])->name('exportstudent');
+        Route::post('/import',[UserStudentController::class,'import'])->name('importstudent');
+        Route::get('/download',[UserStudentController::class,'download'])->name('downloadexamplefilestudent');
     });
     Route::prefix('employee')->group(function () {
         Route::get('/',[UserEmployeeController::class,'index'])->name('indexemployee');
@@ -26,6 +30,17 @@ Route::prefix('/admin/dashbaord')->group(function () {
         Route::get('/edit/{id}',[UserEmployeeController::class,'edit'])->name('editemployee');
         Route::post('/update/{id}',[UserEmployeeController::class,'update'])->name('updateemployee');
         Route::get('/destroy/{id}',[UserEmployeeController::class,'destroy'])->name('destroyemployee');
+        Route::get('/export',[UserEmployeeController::class,'export'])->name('exportemployee');
+        Route::post('/import',[UserEmployeeController::class,'import'])->name('importemployee');
+        Route::get('/download',[UserEmployeeController::class,'download'])->name('downloadexamplefileemployee');
+    });
+    Route::prefix('user')->group(function () {
+        Route::get('/',[UserController::class,'index'])->name('indexuser');
+        Route::get('/create',[UserController::class,'create'])->name('createuser');
+        Route::post('/store',[UserController::class,'store'])->name('storeuser');
+        Route::get('/edit/{id}',[UserController::class,'edit'])->name('edituser');
+        Route::post('/update/{id}',[UserController::class,'update'])->name('updateuser');
+        Route::get('/destroy/{id}',[UserController::class,'destroy'])->name('destroyuser');
     });
     Route::prefix('candidate')->group(function () {
         Route::get('/',[CandidateController::class,'index'])->name('indexcandidate');

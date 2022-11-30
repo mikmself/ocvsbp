@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EmployeesExport;
+use App\Imports\UsersEmployeeImport;
 use App\Models\Employee;
 use App\Models\Session;
 use App\Models\User;
@@ -9,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
 
 class UserEmployeeController extends Controller
@@ -140,5 +143,28 @@ class UserEmployeeController extends Controller
             toastr()->error('employee data not found');
             return redirect(route('indexmasteremployee'));
         }
+    }
+    public function export()
+    {
+        return Excel::download(new EmployeesExport, 'employees.xlsx');
+    }
+    public function import(Request $request){
+        if($request->hasFile('file')){
+            $isImported = Excel::import(new UsersEmployeeImport, $request->file('file'));
+            if($isImported){
+                toastr()->success('employee data successfully imported');
+                return back();
+            }else{
+                toastr()->error('employee data failed to import');
+            }
+        }else{
+            toastr()->error('data not valid!');
+        }
+    }
+    public function download(){
+        $path = public_path('/excel/exampleEmployee.xlsx');
+        $fileName = 'exampleEmployee.xlsx';
+        toastr()->success('example file successfully downloaded');
+        return response()->download($path, $fileName);
     }
 }
