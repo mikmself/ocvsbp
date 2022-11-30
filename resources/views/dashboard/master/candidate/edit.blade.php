@@ -9,7 +9,7 @@
                 <a href="{{route('indexcandidate')}}" class="btn btn-success">Back</a>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
-                <form action="{{route('updatecandidate',$candidate->id)}}" class="p-3 pt-0" method="POST">
+                <form action="{{route('updatecandidate',$candidate->id)}}" class="p-3 pt-0" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name :</label>
@@ -17,11 +17,11 @@
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="vision" class="form-label">Vision :</label>
-                        <input type="text" class="form-control" id="vision" placeholder="Enter Vision" name="vision" value="{{old('vision', $candidate->vision)}}">
+                        <textarea class="form-control" id="vision" rows="3" name="vision" placeholder="Enter Vision">{{old('vision', $candidate->vision)}}</textarea>
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="mission" class="form-label">Mission :</label>
-                        <input type="text" class="form-control" id="mission" placeholder="Enter Mission" name="mission" value="{{old('mission', $candidate->mission)}}">
+                        <textarea class="form-control" id="mission" rows="3" name="mission" placeholder="Enter Mission">{{old('mission', $candidate->mission)}}</textarea>
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="motto" class="form-label">Motto :</label>
@@ -29,7 +29,9 @@
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="photo" class="form-label">Photo :</label>
-                        <input type="text" class="form-control" id="photo" placeholder="Enter Photo" name="photo" value="{{old('photo', $candidate->photo)}}">
+                        <br />
+                        <img src="{{$candidate->photo}}" class="avatar avatar-xxl" id="previewPhoto">
+                        <input class="form-control mt-3" type="file" id="photo" name="photo" onchange="showPreview(event)">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -37,5 +39,25 @@
         </div>
     </div>
 </div>
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script>
+    let vision = document.getElementById("vision");
+        CKEDITOR.replace(vision,{
+        language:'en-gb'
+    });
+    let mission = document.getElementById("mission");
+        CKEDITOR.replace(mission,{
+        language:'en-gb'
+    });
+    CKEDITOR.config.allowedContent = true;
+
+    let previewPhoto = document.getElementById("previewPhoto");
+    function showPreview(event){
+        if(event.target.files.length > 0){
+            let src = URL.createObjectURL(event.target.files[0]);
+            previewPhoto.src = src;
+        }
+    }
+</script>
 @endsection
 

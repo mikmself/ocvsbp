@@ -30,16 +30,16 @@
                                 @foreach ($candidates as $candidate)
                                     <tr>
                                         <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$candidate->photo}}</p>
+                                            <img src="{{$candidate->photo}}" class="avatar avatar-xl m-3" alt="user1">
                                         </td>
                                         <td class="text-left">
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$candidate->name}}</p>
                                         </td>
                                         <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$candidate->vision}}</p>
+                                            <p class="text-xs font-weight-bold mb-0 p-3">{!! $candidate->vision !!}</p>
                                         </td>
                                         <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$candidate->mission}}</p>
+                                            <p class="text-xs font-weight-bold mb-0 p-3">{!! $candidate->mission !!}</p>
                                         </td>
                                         <td class="text-left">
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$candidate->motto}}</p>

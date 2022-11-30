@@ -13,25 +13,25 @@ class CandidateSeeder extends Seeder
         Candidate::create([
             'id' => Str::uuid(),
             'name' => 'Supardi Joko Kusumo',
-            'vision' => 'apa aja yang penting visi',
-            'mission' => 'apa aja yang penting misi',
-            'motto' => 'apa aja yang penting motto',
+            'vision' => '<p>1. Mengembangkan sektor A</p><p>2. Mengembangkan sektor B</p><p>3. Mengembangkan sektor C</p><p>4. Mengembangkan sektor D</p>',
+            'mission' => '<p>1. Mengembangkan sektor A</p><p>2. Mengembangkan sektor B</p><p>3. Mengembangkan sektor C</p><p>4. Mengembangkan sektor D</p>',
+            'motto' => 'Hiduplah walau kamu tidak hidup',
             'photo' => '/candidate/photo.jpg',
         ]);
         Candidate::create([
             'id' => Str::uuid(),
             'name' => 'Sukoharjo Muhadi Sukarjo',
-            'vision' => 'apa aja yang penting visi 2',
-            'mission' => 'apa aja yang penting misi 2',
-            'motto' => 'apa aja yang penting motto 2',
+            'vision' => '<p>1. Mengembangkan sektor A</p><p>2. Mengembangkan sektor B</p><p>3. Mengembangkan sektor C</p><p>4. Mengembangkan sektor D</p>',
+            'mission' => '<p>1. Mengembangkan sektor A</p><p>2. Mengembangkan sektor B</p><p>3. Mengembangkan sektor C</p><p>4. Mengembangkan sektor D</p>',
+            'motto' => 'Hiduplah walau kamu tidak hidup',
             'photo' => '/candidate/photo2.jpg',
         ]);
         Candidate::create([
             'id' => Str::uuid(),
             'name' => 'Supratyo Dikinosojo',
-            'vision' => 'apa aja yang penting visi 3',
-            'mission' => 'apa aja yang penting misi 3',
-            'motto' => 'apa aja yang penting motto 3',
+            'vision' => '<p>1. Mengembangkan sektor A</p><p>2. Mengembangkan sektor B</p><p>3. Mengembangkan sektor C</p><p>4. Mengembangkan sektor D</p>',
+            'mission' => '<p>1. Mengembangkan sektor A</p><p>2. Mengembangkan sektor B</p><p>3. Mengembangkan sektor C</p><p>4. Mengembangkan sektor D</p>',
+            'motto' => 'Hiduplah walau kamu tidak hidup',
             'photo' => '/candidate/photo3.jpg',
         ]);
     }

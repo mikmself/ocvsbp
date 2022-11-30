@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Throwable;
@@ -26,7 +27,7 @@ class CandidateController extends Controller
             'vision' => 'required',
             'mission' => 'required',
             'motto' => 'required',
-            'photo' => 'required'
+            'photo' => 'required|image|mimes:png,jpg,jpeg'
         ]);
         if($validator->fails()){
             foreach ($validator->errors()->messages() as $errors => $messages) {
@@ -37,13 +38,15 @@ class CandidateController extends Controller
             return back()->withInput();
         }else{
             try {
+                $imageName = time().'.'.$request->photo->extension();
+                $request->photo->move(public_path('candidate'), $imageName);
                 $isCreated = Candidate::create([
                     'id' => Str::uuid(),
                     'name' => $request->input('name'),
                     'vision' => $request->input('vision'),
                     'mission' => $request->input('mission'),
                     'motto' => $request->input('motto'),
-                    'photo' => $request->input('photo')
+                    'photo' => '/candidate/' . $imageName
                 ]);
                 if($isCreated){
                     toastr()->success('candidate data successfully created');
@@ -93,9 +96,16 @@ class CandidateController extends Controller
                     'name' => $request->input('name'),
                     'vision' => $request->input('vision'),
                     'mission' => $request->input('mission'),
-                    'motto' => $request->input('motto'),
-                    'photo' => $request->input('photo')
+                    'motto' => $request->input('motto')
                 ]);
+                if($request->hasFile('photo')){
+                    $imageName = time().'.'.$request->photo->extension();
+                    $request->photo->move(public_path('candidate'), $imageName);
+                    File::delete(public_path($candidate->photo));
+                    $candidate->update([
+                        'photo' => '/candidate/' . $imageName
+                    ]);
+                }
                 if($isUpdated){
                     toastr()->success('candidate data successfully updated');
                     return back();
