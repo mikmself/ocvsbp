@@ -14,9 +14,9 @@ class Session extends Model
     ];
 
     public function employee(){
-        $this->hasMany(Employee::class,'session_id');
+        return $this->hasMany(Employee::class,'session_id');
     }
     public function student(){
-        $this->hasMany(Student::class,'session_id');
+        return $this->hasMany(Student::class,'session_id');
     }
 }

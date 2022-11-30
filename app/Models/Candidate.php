@@ -22,6 +22,6 @@ class Candidate extends Model
     ];
 
     public function vote(){
-        $this->hasMany(Vote::class,'candidate_id');
+        return $this->hasMany(Vote::class,'candidate_id');
     }
 }

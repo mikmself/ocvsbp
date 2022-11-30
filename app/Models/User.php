@@ -33,12 +33,12 @@ class User extends Authenticatable
     ];
 
     public function employee(){
-        $this->hasOne(Employee::class,'user_id');
+        return $this->hasOne(Employee::class,'user_id');
     }
     public function student(){
-        $this->hasOne(Student::class,'user_id');
+        return $this->hasOne(Student::class,'user_id');
     }
     public function vote(){
-        $this->hasOne(Vote::class,'user_id');
+        return $this->hasOne(Vote::class,'user_id');
     }
 }

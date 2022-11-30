@@ -19,9 +19,9 @@ class Vote extends Model
     ];
 
     public function user(){
-        $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
     public function candidate(){
-        $this->belongsTo(Candidate::class,'candidate_id');
+        return $this->belongsTo(Candidate::class,'candidate_id');
     }
 }
