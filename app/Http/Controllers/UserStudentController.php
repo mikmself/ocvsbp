@@ -32,7 +32,6 @@ class UserStudentController extends Controller
             'session_id' => 'required|numeric',
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required',
             'nis' => 'required|numeric',
             'nisn' => 'required|numeric'
         ]);
@@ -51,7 +50,7 @@ class UserStudentController extends Controller
                     'id' => $userId,
                     'name' => $name,
                     'email' => $request->input('email'),
-                    'password' => Hash::make($request->input('password')),
+                    'password' => Str::random(10),
                     'is_voted' => 'false'
                 ]);
                 $isCreatedStudentData = Student::create([

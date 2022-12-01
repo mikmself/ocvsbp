@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             UserStudentSeeder::class,
             UserEmployeeSeeder::class,
             CandidateSeeder::class,
+            UserSeeder::class
         ]);
     }
 }

@@ -4,7 +4,6 @@ namespace App\Imports;
 
 use App\Models\Student;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
@@ -24,7 +23,7 @@ class UsersStudentsImport implements ToCollection, WithHeadingRow, SkipsOnError
                 'id' => $userId,
                 'name' => $name,
                 'email' => $row['email'],
-                'password' => Hash::make($row['password']),
+                'password' => Str::random(10),
                 'is_voted' => 'false'
             ]);
             Student::create([

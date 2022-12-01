@@ -6,7 +6,6 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -24,7 +23,7 @@ class UsersEmployeeImport implements ToCollection, WithHeadingRow, SkipsOnError
                 'id' => $userId,
                 'name' => $name,
                 'email' => $row['email'],
-                'password' => Hash::make($row['password']),
+                'password' => Str::random(10),
                 'is_voted' => 'false'
             ]);
             Employee::create([

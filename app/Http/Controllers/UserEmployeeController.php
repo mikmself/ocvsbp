@@ -32,7 +32,6 @@ class UserEmployeeController extends Controller
             'session_id' => 'required|numeric',
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required',
             'nip' => 'required|numeric',
             'division' => 'required'
         ]);
@@ -51,7 +50,7 @@ class UserEmployeeController extends Controller
                     'id' => $userId,
                     'name' => $name,
                     'email' => $request->input('email'),
-                    'password' => Hash::make($request->input('password')),
+                    'password' => Str::random(10),
                     'is_voted' => 'false'
                 ]);
                 $isCreatedEmployeeData = Employee::create([

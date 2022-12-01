@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserEmployeeController;
@@ -12,6 +13,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('/admin/dashbaord')->group(function () {
+    Route::get('/',[HomeController::class,'index'])->name('indexdashboard');
     Route::prefix('student')->group(function () {
         Route::get('/',[UserStudentController::class,'index'])->name('indexstudent');
         Route::get('/create',[UserStudentController::class,'create'])->name('createstudent');

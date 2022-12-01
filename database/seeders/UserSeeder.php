@@ -14,8 +14,8 @@ class UserSeeder extends Seeder
         User::create([
             'id' => Str::uuid(),
             'name' => 'Muhamad Irga Khoirul Mahfis',
-            'email' => 'mikmself@gmail.com',
-            'password' => Hash::make('superadmin123'),
+            'email' => 'root@gmail.com',
+            'password' => Hash::make('root'),
             'level' => 'superadmin',
             'is_voted' => 'false'
         ]);
@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'id' => Str::uuid(),
             'name' => 'Administrator Umum',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin123'),
+            'password' => Hash::make('admin'),
             'level' => 'admin',
             'is_voted' => 'false'
         ]);
