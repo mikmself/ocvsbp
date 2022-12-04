@@ -14,7 +14,7 @@ class CreateCandidatesTable extends Migration
     public function up()
     {
         Schema::create('candidates', function (Blueprint $table) {
-            $table->uuid('id')->unique();
+            $table->uuid('id')->unique()->primary();
             $table->string('name');
             $table->text('vision');
             $table->text('mission');

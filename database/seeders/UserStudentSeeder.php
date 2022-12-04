@@ -18,7 +18,8 @@ class UserStudentSeeder extends Seeder
             'name' => 'Eko Susilo',
             'email' => 'ekosusilo@gmail.com',
             'password' => Hash::make('student123'),
-            'is_voted' => 'false'
+            'is_voted' => 'false',
+            'remember_token' => Str::random(100)
         ]);
         Student::create([
             'id' => Str::uuid(),
@@ -35,7 +36,8 @@ class UserStudentSeeder extends Seeder
             'name' => 'Didi Prasetyo',
             'email' => 'didiprasetyo@gmail.com',
             'password' => Hash::make('student123'),
-            'is_voted' => 'false'
+            'is_voted' => 'false',
+            'remember_token' => Str::random(100)
         ]);
         Student::create([
             'id' => Str::uuid(),
@@ -52,7 +54,8 @@ class UserStudentSeeder extends Seeder
             'name' => 'Amar Al-Farizi',
             'email' => 'amaralfarizi@gmail.com',
             'password' => Hash::make('student123'),
-            'is_voted' => 'false'
+            'is_voted' => 'false',
+            'remember_token' => Str::random(100)
         ]);
         Student::create([
             'id' => Str::uuid(),

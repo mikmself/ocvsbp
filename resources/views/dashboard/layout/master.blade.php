@@ -63,24 +63,7 @@
                     <a class="nav-link" href="{{route('indexstudent')}}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
-                                        fill-rule="nonzero">
-                                        <g transform="translate(1716.000000, 291.000000)">
-                                            <g id="office" transform="translate(153.000000, 2.000000)">
-                                                <path class="color-background opacity-6"
-                                                    d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
-                                                </path>
-                                                <path class="color-background"
-                                                    d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/></svg>
                         </div>
                         <span class="nav-link-text ms-1">Student</span>
                     </a>
@@ -89,24 +72,7 @@
                     <a class="nav-link" href="{{route('indexemployee')}}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
-                                        fill-rule="nonzero">
-                                        <g transform="translate(1716.000000, 291.000000)">
-                                            <g id="office" transform="translate(153.000000, 2.000000)">
-                                                <path class="color-background opacity-6"
-                                                    d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
-                                                </path>
-                                                <path class="color-background"
-                                                    d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/></svg>
                         </div>
                         <span class="nav-link-text ms-1">Employee</span>
                     </a>
@@ -115,24 +81,7 @@
                     <a class="nav-link" href="{{route('indexuser')}}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
-                                        fill-rule="nonzero">
-                                        <g transform="translate(1716.000000, 291.000000)">
-                                            <g id="office" transform="translate(153.000000, 2.000000)">
-                                                <path class="color-background opacity-6"
-                                                    d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
-                                                </path>
-                                                <path class="color-background"
-                                                    d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/></svg>
                         </div>
                         <span class="nav-link-text ms-1">User</span>
                     </a>
@@ -141,24 +90,7 @@
                     <a class="nav-link" href="{{route('indexcandidate')}}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
-                                        fill-rule="nonzero">
-                                        <g transform="translate(1716.000000, 291.000000)">
-                                            <g id="office" transform="translate(153.000000, 2.000000)">
-                                                <path class="color-background opacity-6"
-                                                    d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
-                                                </path>
-                                                <path class="color-background"
-                                                    d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/></svg>
                         </div>
                         <span class="nav-link-text ms-1">Candidate</span>
                     </a>
@@ -189,6 +121,32 @@
                         <span class="nav-link-text ms-1">Session</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('logout')}}">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF"
+                                        fill-rule="nonzero">
+                                        <g transform="translate(1716.000000, 291.000000)">
+                                            <g id="office" transform="translate(153.000000, 2.000000)">
+                                                <path class="color-background opacity-6"
+                                                    d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
+                                                </path>
+                                                <path class="color-background"
+                                                    d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Logout</span>
+                    </a>
+                </li>
             </ul>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -215,7 +173,7 @@
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none">Sign In</span>
+                                <span class="d-sm-inline d-none">{{auth()->user()->name}}</span>
                             </a>
                         </li>
                     </ul>

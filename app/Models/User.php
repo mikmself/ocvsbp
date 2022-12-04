@@ -11,8 +11,8 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
     public $incrementing = false;
-    protected $id = 'string';
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -21,7 +21,8 @@ class User extends Authenticatable
         'email',
         'password',
         'is_voted',
-        'level'
+        'level',
+        'remember_token'
     ];
 
     protected $hidden = [
@@ -30,6 +31,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
+        'id' => 'string',
         'email_verified_at' => 'datetime',
     ];
 

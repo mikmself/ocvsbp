@@ -14,7 +14,7 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->uuid('id')->unique();
+            $table->uuid('id')->unique()->primary();
             $table->foreignUuid('user_id')->unique()->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('session_id')->constrained('sessions')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');

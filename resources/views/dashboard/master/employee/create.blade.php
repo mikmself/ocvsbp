@@ -49,10 +49,6 @@
                         </select>
                     </div>
                     <div class="mb-3 mt-3">
-                        <label for="password" class="form-label">Password :</label>
-                        <input type="text" class="form-control" id="password" placeholder="Enter Password" name="password" value="{{old('password', '')}}">
-                    </div>
-                    <div class="mb-3 mt-3">
                         <label for="nip" class="form-label">NIP :</label>
                         <input type="text" class="form-control" id="nip" placeholder="Enter NIP" name="nip" value="{{old('nip', '')}}">
                     </div>

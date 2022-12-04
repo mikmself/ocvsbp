@@ -18,7 +18,8 @@ class UserEmployeeSeeder extends Seeder
             'name' => 'Yoga Willy Utomo',
             'email' => 'yogawilly@gmail.com',
             'password' => Hash::make('employee123'),
-            'is_voted' => 'false'
+            'is_voted' => 'false',
+            'remember_token' => Str::random(100)
         ]);
         Employee::create([
             'id' => Str::uuid(),
@@ -35,7 +36,8 @@ class UserEmployeeSeeder extends Seeder
             'name' => 'Supardi Mangkunegara',
             'email' => 'sprdimngkngr@gmail.com',
             'password' => Hash::make('employee123'),
-            'is_voted' => 'false'
+            'is_voted' => 'false',
+            'remember_token' => Str::random(100)
         ]);
         Employee::create([
             'id' => Str::uuid(),
@@ -52,7 +54,8 @@ class UserEmployeeSeeder extends Seeder
             'name' => 'Minu Prosaja',
             'email' => 'minuprosaja@gmail.com',
             'password' => Hash::make('employee123'),
-            'is_voted' => 'false'
+            'is_voted' => 'false',
+            'remember_token' => Str::random(100)
         ]);
         Employee::create([
             'id' => Str::uuid(),

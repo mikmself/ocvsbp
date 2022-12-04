@@ -14,7 +14,7 @@ class CreateVotesTable extends Migration
     public function up()
     {
         Schema::create('votes', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->unique()->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignUuid('candidate_id')->constrained('candidates')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
