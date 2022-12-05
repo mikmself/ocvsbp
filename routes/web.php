@@ -11,21 +11,24 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/email', function () {
-    return view('mail.userAccount');
+    return redirect('/login');
 });
 
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/postlogin',[AuthController::class,'postLogin'])->name('postLogin');
 
-
-Route::get('auth/user',[AuthController::class,'userLogin'])->name('userLogin');
 Route::middleware('auth')->group(function () {
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-    Route::post('/generatepasswords/',[AuthController::class,'generatePasswords'])->name('generatePasswords');
+    Route::post('/generatepasswords',[AuthController::class,'generatePasswords'])->name('generatePasswords');
     Route::get('/generatepassword/{id}',[AuthController::class,'generatePassword'])->name('generatePassword');
+
+    Route::prefix('/user')->group(function () {
+        Route::get('/welcome',[HomeController::class,'welcome'])->name('welcome');
+        Route::get('/thanks',[HomeController::class,'thanks'])->name('thanks');
+
+        Route::get('/election',[HomeController::class,'electionIndex'])->name('electionIndex');
+        Route::post('/electionPost',[HomeController::class,'election'])->name('electionPost');
+    });
 
     Route::prefix('/admin/dashboard')->group(function () {
         Route::get('/',[HomeController::class,'index'])->name('indexdashboard');

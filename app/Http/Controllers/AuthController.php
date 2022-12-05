@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\UserAccountMail;
+use App\Models\Employee;
+use App\Models\Session;
+use App\Models\Student;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -32,13 +35,45 @@ class AuthController extends Controller
             $requestEmail = $request->input('email');
             $user = User::where('email',$requestEmail)->first();
             $isExist = isset($user);
+            $isUser = $user->level == "user";
+            $isVoted = $user->is_voted == "true";
             if($isExist){
+                if($isUser){
+                    $student = Student::where('user_id',$user->id)->first();
+                    $employee = Employee::where('user_id',$user->id)->first();
+                    $isStudent = isset($student);
+                    $isEmployee = isset($employee);
+                    if($isStudent || $isEmployee){
+                        if($isStudent){
+                            $sessionStudent = Session::whereId($student->session_id)->first();
+                            if($sessionStudent->status == "off"){
+                                toastr()->warning('your session is not yet active, be patient please!');
+                                return back();
+                            }
+                        }
+                        if($isEmployee){
+                            $sessionEmployee = Session::whereId($employee->session_id)->first();
+                            if($sessionEmployee->status == "off"){
+                                toastr()->warning('your session is not yet active, be patient please!');
+                                return back();
+                            }
+                        }
+                        if($isVoted){
+                            toastr()->warning('You have exercised your right to vote, cannot vote more than once!');
+                            return back();
+                        }
+                    }
+                }
                 $credentials = $request->only('email', 'password');
                 $check = Auth::attempt($credentials);
                 if ($check) {
                     $request->session()->regenerate();
                     toastr()->success('you have successfully logged in');
-                    return redirect()->intended(RouteServiceProvider::HOME);
+                    if($isUser){
+                        return redirect()->intended(route('welcome'));
+                    }else{
+                        return redirect()->intended(RouteServiceProvider::HOME);
+                    }
                 }else{
                     toastr()->error('the password you entered is incorrect');
                     return back();
