@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/email', function () {
+    return view('mail.userAccount');
+});
 
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/postlogin',[AuthController::class,'postLogin'])->name('postLogin');
+
+
+Route::get('auth/user',[AuthController::class,'userLogin'])->name('userLogin');
 Route::middleware('auth')->group(function () {
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-    Route::get('/generatepassword',[AuthController::class,'generatePassword'])->name('generatePassword');
+    Route::post('/generatepasswords/',[AuthController::class,'generatePasswords'])->name('generatePasswords');
+    Route::get('/generatepassword/{id}',[AuthController::class,'generatePassword'])->name('generatePassword');
 
     Route::prefix('/admin/dashboard')->group(function () {
         Route::get('/',[HomeController::class,'index'])->name('indexdashboard');

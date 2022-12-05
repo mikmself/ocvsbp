@@ -15,8 +15,8 @@ class UserStudentSeeder extends Seeder
         $iduser = Str::uuid();
         User::create([
             'id' => $iduser,
-            'name' => 'Eko Susilo',
-            'email' => 'ekosusilo@gmail.com',
+            'name' => 'Dadang Mikarjo',
+            'email' => 'dadang@gmail.com',
             'password' => Hash::make('student123'),
             'is_voted' => 'false',
             'remember_token' => Str::random(100)
@@ -25,45 +25,9 @@ class UserStudentSeeder extends Seeder
             'id' => Str::uuid(),
             'user_id' => $iduser,
             'session_id' => '3',
-            'name' => 'Eko Susilo',
+            'name' => 'Dadang Mikarjo',
             'nis' => '18057',
             'nisn' => '8716728723',
-        ]);
-
-        $iduser2 = Str::uuid();
-        User::create([
-            'id' => $iduser2,
-            'name' => 'Didi Prasetyo',
-            'email' => 'didiprasetyo@gmail.com',
-            'password' => Hash::make('student123'),
-            'is_voted' => 'false',
-            'remember_token' => Str::random(100)
-        ]);
-        Student::create([
-            'id' => Str::uuid(),
-            'user_id' => $iduser2,
-            'session_id' => '2',
-            'name' => 'Didi Prasetyo',
-            'nis' => '18058',
-            'nisn' => '2767638948',
-        ]);
-
-        $iduser3 = Str::uuid();
-        User::create([
-            'id' => $iduser3,
-            'name' => 'Amar Al-Farizi',
-            'email' => 'amaralfarizi@gmail.com',
-            'password' => Hash::make('student123'),
-            'is_voted' => 'false',
-            'remember_token' => Str::random(100)
-        ]);
-        Student::create([
-            'id' => Str::uuid(),
-            'user_id' => $iduser3,
-            'session_id' => '1',
-            'name' => 'Amar Al-Farizi',
-            'nis' => '18059',
-            'nisn' => '2874929849',
         ]);
     }
 }

@@ -20,14 +20,5 @@ class UserSeeder extends Seeder
             'is_voted' => 'false',
             'remember_token' => Str::random(100)
         ]);
-        User::create([
-            'id' => Str::uuid(),
-            'name' => 'Administrator Umum',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin'),
-            'level' => 'admin',
-            'is_voted' => 'false',
-            'remember_token' => Str::random(100)
-        ]);
     }
 }
