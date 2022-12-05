@@ -26,7 +26,7 @@
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
                 target="_blank">
                 <img src="/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">One Click Voting System</span>
+                <span class="ms-1 font-weight-bold">OCVS</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -161,6 +161,15 @@
                     </ol>
                     <h6 class="font-weight-bolder mb-0">@yield('title')</h6>
                 </nav>
+                <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                        <div class="sidenav-toggler-inner">
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                        <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </a>
+                </li>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group">
