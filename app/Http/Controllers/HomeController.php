@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\Employee;
+use App\Models\Student;
 use App\Models\User;
 use App\Models\Vote;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -12,7 +15,39 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $alreadyChosen = User::where('is_voted','true')->count();
+        $haventChosen = User::where('is_voted','false')->count();
+
+        $studentsAttend = Student::whereHas('user',function(Builder $query){
+            $query->where('is_voted','true');
+        })->count();
+        $employeesAttend = Employee::whereHas('user',function(Builder $query){
+            $query->where('is_voted','true');
+        })->count();
+
+        $studentsAbstention = Student::whereHas('user',function(Builder $query){
+            $query->where('is_voted','false');
+        })->count();
+        $employeesAbstention = Employee::whereHas('user',function(Builder $query){
+            $query->where('is_voted','false');
+        })->count();
+
+        $totalCounts = [];
+        $candidates = Candidate::get();
+        foreach ($candidates as $candidate) {
+            array_push($totalCounts,Vote::where('candidate_id',$candidate->id)->count());
+        }
+
+        return view('dashboard.index',compact(
+            'alreadyChosen',
+            'haventChosen',
+            'studentsAttend',
+            'employeesAttend',
+            'studentsAbstention',
+            'employeesAbstention',
+            'candidates',
+            'totalCounts'
+        ));
     }
     public function welcome(){
         return view('userPage.welcome');

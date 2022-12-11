@@ -92,9 +92,13 @@ class UserStudentController extends Controller
         $validator = Validator::make($request->all(),[
             'session_id' => 'required|numeric',
             'name' => 'required|string',
+            'email' => 'required|email',
             'nis' => 'required|numeric',
             'nisn' => 'required|numeric'
         ]);
+        if ($request->input('newpassword') == null){
+            $request->request->remove('newpassword');
+        }
         if($validator->fails()){
             foreach ($validator->errors()->messages() as $errors => $messages) {
                 foreach($messages as $message){
@@ -104,15 +108,22 @@ class UserStudentController extends Controller
             return back()->withInput();
         }else{
             $student = Student::whereId($id)->first();
-            $isExist = isset($student);
-            if($isExist){
-                $isUpdated = $student->update([
+            $user = User::whereId($student->user->id)->first();
+            $isExistStudent = isset($student);
+            $isExistUser = isset($user);
+            if($isExistStudent && $isExistUser ){
+                $isUpdatedStudent = $student->update([
                     'session_id' => $request->input('session_id'),
                     'name' => $request->input('name'),
                     'nis' => $request->input('nis'),
                     'nisn' => $request->input('nisn')
                 ]);
-                if($isUpdated){
+                $isUpdatedUser = $user->update([
+                    'name' => $request->input('name'),
+                    'email' => $request->input('email'),
+                    'password' => Hash::make($request->input('newpassword'))
+                ]);
+                if($isUpdatedStudent && $isUpdatedUser){
                     toastr()->success('student data successfully updated');
                     return back();
                 }else{

@@ -10,7 +10,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Students Attend</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    1000
+                                    {{$studentsAttend}}
                                 </h5>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Employees Attend</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    800
+                                    {{$employeesAttend}}
                                 </h5>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Abstention Students</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    100
+                                    {{$studentsAbstention}}
                                 </h5>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Abstention Employee</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    120
+                                    {{$employeesAbstention}}
                                 </h5>
                             </div>
                         </div>
@@ -183,9 +183,29 @@
             </div>
         </div>
     </div>
-
+    <div id="candidates" style="display: none">
+        @foreach ($candidates as $candidate)
+            <p>{{$candidate->name}}</p>
+        @endforeach
+    </div>
+    <div id="totalCount" style="display: none">
+        @foreach ($totalCounts as $total)
+            <p>{{$total}}</p>
+        @endforeach
+    </div>
     <script src="/assets/js/plugins/chartjs.min.js"></script>
     <script>
+
+
+        function getRandomRgb() {
+            var num = Math.round(0xffffff * Math.random());
+            var r = num >> 16;
+            var g = num >> 8 & 255;
+            var b = num & 255;
+            return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+        }
+
+
         function display_ct5() {
             var x = new Date()
             var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
@@ -218,7 +238,7 @@
                         'rgb(54, 162, 235)',
                         'rgb(255, 99, 132)'
                     ],
-                    data: [450, 200],
+                    data: [{{$alreadyChosen}}, {{$haventChosen}}],
                     maxBarThickness: 6
                 }]
             },
@@ -239,23 +259,31 @@
         gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
         gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
 
+        let candidates = document.querySelectorAll("#candidates p");
+        let candidatesName = [];
+        let randomsRgb = [];
+        candidates.forEach(candidate => {
+            candidatesName.push(candidate.textContent);
+            randomsRgb.push(getRandomRgb());
+        });
+
+        let totalCount = document.querySelectorAll("#totalCount p");
+        let candidateVoteTotals = [];
+        totalCount.forEach(total => {
+            candidateVoteTotals.push(total.textContent);
+        });
         new Chart(ctx2, {
             type: "pie",
             data: {
-                labels: ["Candidate 1", "Candidate 2", "Candidate 3", "Candidate 4"],
+                labels: candidatesName,
                 datasets: [{
                     label: "Number Of Votes",
                     tension: 0.4,
                     borderWidth: 0,
                     borderRadius: 4,
                     borderSkipped: false,
-                    backgroundColor: [
-                        'rgb(54, 162, 135)',
-                        'rgb(255, 199, 132)',
-                        'rgb(255, 205, 86)',
-                        'rgb(200, 100, 80)'
-                    ],
-                    data: [450, 200, 100, 500],
+                    backgroundColor: randomsRgb,
+                    data: candidateVoteTotals,
                     maxBarThickness: 6
                 }]
             },

@@ -12,22 +12,26 @@ class UserStudentSeeder extends Seeder
 {
     public function run()
     {
-        $iduser = Str::uuid();
-        User::create([
-            'id' => $iduser,
-            'name' => 'Dadang Mikarjo',
-            'email' => 'dadang@gmail.com',
-            'password' => Hash::make('student123'),
-            'is_voted' => 'false',
-            'remember_token' => Str::random(100)
-        ]);
-        Student::create([
-            'id' => Str::uuid(),
-            'user_id' => $iduser,
-            'session_id' => '3',
-            'name' => 'Dadang Mikarjo',
-            'nis' => '18057',
-            'nisn' => '8716728723',
-        ]);
+        $firstNis = 18000;
+        $firstNisn = 8727583748;
+        for ($i=1; $i <= 200; $i++) {
+            $iduser = Str::uuid();
+            User::create([
+                'id' => $iduser,
+                'name' => 'Example Student ' . $i,
+                'email' => 'examplestudent' .$i. '@gmail.com',
+                'password' => Hash::make('student123'),
+                'is_voted' => 'false',
+                'remember_token' => Str::random(100)
+            ]);
+            Student::create([
+                'id' => Str::uuid(),
+                'user_id' => $iduser,
+                'session_id' => rand(1,3),
+                'name' => 'Example Student ' . $i,
+                'nis' => $firstNis+$i,
+                'nisn' => $firstNisn+$i,
+            ]);
+        }
     }
 }

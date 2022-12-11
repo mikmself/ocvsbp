@@ -16,6 +16,10 @@
                         <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="{{old('name', $student->name)}}">
                     </div>
                     <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email :</label>
+                        <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" value="{{old('email', $student->user->email)}}">
+                    </div>
+                    <div class="mb-3 mt-3">
                         <label for="session" class="form-label">Session :</label>
                         <select class="form-select" name="session_id">
                             @foreach ($sessions as $session)
@@ -30,6 +34,10 @@
                     <div class="mb-3 mt-3">
                         <label for="nisn" class="form-label">NISN :</label>
                         <input type="text" class="form-control" id="nisn" placeholder="Enter NISN" name="nisn" value="{{old('nisn', $student->nisn)}}">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="newpassword" class="form-label">New Password :</label>
+                        <input type="text" class="form-control" id="newpassword" placeholder="Enter New Password" name="newpassword">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

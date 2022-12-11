@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'id' => Str::uuid(),
-            'name' => 'Muhamad Irga Khoirul Mahfis',
+            'name' => 'Root User',
             'email' => 'root@gmail.com',
             'password' => Hash::make('root'),
             'level' => 'superadmin',

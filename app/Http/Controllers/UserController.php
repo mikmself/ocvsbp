@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+        $users = User::where('level','!=','user')->get();
         return response()->view('dashboard.master.user.index',compact('users'));
     }
     public function create()

@@ -92,9 +92,13 @@ class UserEmployeeController extends Controller
         $validator = Validator::make($request->all(),[
             'session_id' => 'required|numeric',
             'name' => 'required|string',
+            'email' => 'required|email',
             'nip' => 'required|numeric',
             'division' => 'required'
         ]);
+        if ($request->input('newpassword') == null){
+            $request->request->remove('newpassword');
+        }
         if($validator->fails()){
             foreach ($validator->errors()->messages() as $errors => $messages) {
                 foreach($messages as $message){
@@ -104,15 +108,22 @@ class UserEmployeeController extends Controller
             return back()->withInput();
         }else{
             $employee = Employee::whereId($id)->first();
-            $isExist = isset($employee);
-            if($isExist){
-                $isUpdated = $employee->update([
+            $user = User::whereId($employee->user->id)->first();
+            $isExistEmployee = isset($employee);
+            $isExistUser = isset($user);
+            if($isExistEmployee && $isExistUser){
+                $isUpdatedEmployee = $employee->update([
                     'session_id' => $request->input('session_id'),
                     'name' => $request->input('name'),
                     'nip' => $request->input('nip'),
                     'division' => $request->input('division')
                 ]);
-                if($isUpdated){
+                $isUpdatedUser = $user->update([
+                    'name' => $request->input('name'),
+                    'email' => $request->input('email'),
+                    'password' => Hash::make($request->input('newpassword'))
+                ]);
+                if($isUpdatedEmployee && $isUpdatedUser){
                     toastr()->success('employee data successfully updated');
                     return back();
                 }else{

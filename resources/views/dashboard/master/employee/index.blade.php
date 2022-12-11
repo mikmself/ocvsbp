@@ -19,13 +19,15 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                        Email</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         Session</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         NIP</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         Division</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                    IS VOTED</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -36,6 +38,9 @@
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->name}}</p>
                                         </td>
                                         <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->user->email}}</p>
+                                        </td>
+                                        <td class="text-left">
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->session->name}}</p>
                                         </td>
                                         <td class="text-left">
@@ -43,6 +48,9 @@
                                         </td>
                                         <td class="text-left">
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->division}}</p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0 p-3 text-{{$employee->user->is_voted == "true" ? "success" : "danger"}}">{{$employee->user->is_voted}}</p>
                                         </td>
                                         <td class="align-middle">
                                             <a href="{{route('editemployee',$employee->id)}}" class="btn btn-warning" >

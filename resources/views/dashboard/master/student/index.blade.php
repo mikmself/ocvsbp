@@ -19,13 +19,15 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                        Email</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         Session</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         NIS</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
                                         NISN</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
+                                        IS VOTED</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -36,6 +38,9 @@
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$student->name}}</p>
                                         </td>
                                         <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$student->user->email}}</p>
+                                        </td>
+                                        <td class="text-left">
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$student->session->name}}</p>
                                         </td>
                                         <td class="text-left">
@@ -43,6 +48,9 @@
                                         </td>
                                         <td class="text-left">
                                             <p class="text-xs font-weight-bold mb-0 p-3">{{$student->nisn}}</p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0 p-3 text-{{$student->user->is_voted == "true" ? "success" : "danger"}}">{{$student->user->is_voted}}</p>
                                         </td>
                                         <td class="align-middle">
                                             <a href="{{route('editstudent',$student->id)}}" class="btn btn-warning" >
