@@ -8,13 +8,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Throwable;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $users = User::where('level','!=','user')->get();
         return response()->view('dashboard.master.user.index',compact('users'));
+    }
+    public function notEncryptedIndex(){
+        $users = User::whereRaw('LENGTH(password) < 11')->get();
+        $countNonEncryptedPasswords = User::whereRaw('LENGTH(password) < 11')->count();
+        return response()->view('dashboard.master.user.notEncrypted',compact('users','countNonEncryptedPasswords'));
     }
     public function create()
     {

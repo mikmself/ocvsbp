@@ -195,35 +195,20 @@
     </div>
     <script src="/assets/js/plugins/chartjs.min.js"></script>
     <script>
-
-
-        function getRandomRgb() {
-            var num = Math.round(0xffffff * Math.random());
-            var r = num >> 16;
-            var g = num >> 8 & 255;
-            var b = num & 255;
-            return 'rgb(' + r + ', ' + g + ', ' + b + ')';
-        }
-
-
         function display_ct5() {
-            var x = new Date()
-            var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
-
-            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+            let x = new Date()
+            let ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+            let x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
             x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds() + ":" + ampm;
             document.getElementById('ct5').innerHTML = x1;
             display_c5();
         }
-
         function display_c5() {
-            var refresh = 1000; // Refresh rate in milli seconds
+            let refresh = 1000;
             mytime = setTimeout('display_ct5()', refresh)
         }
-        display_c5()
-
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
+        display_c5();
+        let ctx = document.getElementById("chart-bars").getContext("2d");
         new Chart(ctx, {
             type: "pie",
             data: {
@@ -243,22 +228,23 @@
                 }]
             },
         });
-
-
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
+        let ctx2 = document.getElementById("chart-line").getContext("2d");
+        let gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
         gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
         gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
+        gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)');
+        let gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
         gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
         gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+        gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)');
 
+        function getRandomRgb() {
+            let num = Math.round(0xffffff * Math.random());
+            let r = num >> 16;
+            let g = num >> 8 & 255;
+            let b = num & 255;
+            return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+        }
         let candidates = document.querySelectorAll("#candidates p");
         let candidatesName = [];
         let randomsRgb = [];
@@ -266,7 +252,6 @@
             candidatesName.push(candidate.textContent);
             randomsRgb.push(getRandomRgb());
         });
-
         let totalCount = document.querySelectorAll("#totalCount p");
         let candidateVoteTotals = [];
         totalCount.forEach(total => {
@@ -303,9 +288,9 @@
         });
     </script>
     <script>
-        var win = navigator.platform.indexOf('Win') > -1;
+        let win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
+            let options = {
                 damping: '0.5'
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);

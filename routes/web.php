@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
         });
         Route::prefix('user')->group(function () {
             Route::get('/',[UserController::class,'index'])->name('indexuser');
+            Route::get('/notEncryptedIndex',[UserController::class,'notEncryptedIndex'])->name('notEncryptedIndex');
             Route::get('/create',[UserController::class,'create'])->name('createuser');
             Route::post('/store',[UserController::class,'store'])->name('storeuser');
             Route::get('/edit/{id}',[UserController::class,'edit'])->name('edituser');

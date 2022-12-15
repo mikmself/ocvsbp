@@ -13,13 +13,29 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
+use Yajra\DataTables\DataTables;
 
 class UserEmployeeController extends Controller
 {
-    public function index()
+    public function index(Request$request)
     {
-        $employees = Employee::get();
-        return response()->view('dashboard.master.employee.index',compact('employees'));
+        // $employees = Employee::get();
+        // return response()->view('dashboard.master.employee.index',compact('employees'));
+        if ($request->ajax()) {
+            $data = Employee::with('user','session')->get();
+            return DataTables::of($data)->addIndexColumn()
+                ->addColumn('action', function($row){
+                    return '
+                        <td>
+                            <a href="/admin/dashboard/employee/edit/'.$row->id.'" class="btn btn-warning">Edit</a>
+                            <a href="/admin/dashboard/employee/destroy/'.$row->id.'" class="btn btn-danger">Delete</a>
+                        </td>
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('dashboard.master.employee.index');
     }
     public function create()
     {

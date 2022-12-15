@@ -13,13 +13,29 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Throwable;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\DataTables;
 
 class UserStudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::get();
-        return response()->view('dashboard.master.student.index',compact('students'));
+        // $students = Student::get();
+        // return response()->view('dashboard.master.student.index',compact('students'));
+        if ($request->ajax()) {
+            $data = Student::with('user','session')->get();
+            return DataTables::of($data)->addIndexColumn()
+                ->addColumn('action', function($row){
+                    return '
+                        <td>
+                            <a href="/admin/dashboard/student/edit/'.$row->id.'" class="btn btn-warning">Edit</a>
+                            <a href="/admin/dashboard/student/destroy/'.$row->id.'" class="btn btn-danger">Delete</a>
+                        </td>
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('dashboard.master.student.index');
     }
     public function create()
     {

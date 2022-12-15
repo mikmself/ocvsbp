@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
     <link id="pagestyle" href="/assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    @yield('style')
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -173,9 +174,6 @@
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group">
-                            <span class="input-group-text text-body" style="z-index: -1"><i class="fas fa-search"
-                                    aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
                         </div>
                     </div>
                     <ul class="navbar-nav  justify-content-end">
@@ -209,6 +207,7 @@
     </script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="/assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+    @yield('script')
 </body>
 
 </html>

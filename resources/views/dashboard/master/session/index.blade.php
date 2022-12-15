@@ -6,7 +6,9 @@
             <div class="card mb-4">
                 <div class="card-header pb-0 d-flex justify-content-between">
                     <h6>Sessions Data</h6>
+                    @if (auth()->user()->level == "superadmin")
                     <a href="{{route('createsession')}}" class="btn btn-success">Create</a>
+                    @endif
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -43,12 +45,14 @@
                                             @endif
                                         </td>
                                         <td class="align-middle">
+                                            @if (auth()->user()->level == "superadmin")
                                             <a href="{{route('editsession',$session->id)}}" class="btn btn-warning" >
                                                 Edit
                                             </a>
                                             <a href="{{route('destroysession',$session->id)}}" class="btn btn-danger" >
                                                 Delete
                                             </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

@@ -1,5 +1,8 @@
 @extends('dashboard.layout.master')
 @section('title', 'Employees Data')
+@section('style')
+    @include('dashboard.layout.datatables')
+@endsection
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -13,7 +16,7 @@
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0 employee_datatable">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-left">
@@ -32,36 +35,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($employees as $employee)
-                                    <tr>
-                                        <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->name}}</p>
-                                        </td>
-                                        <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->user->email}}</p>
-                                        </td>
-                                        <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->session->name}}</p>
-                                        </td>
-                                        <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->nip}}</p>
-                                        </td>
-                                        <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3">{{$employee->division}}</p>
-                                        </td>
-                                        <td class="text-left">
-                                            <p class="text-xs font-weight-bold mb-0 p-3 text-{{$employee->user->is_voted == "true" ? "success" : "danger"}}">{{$employee->user->is_voted}}</p>
-                                        </td>
-                                        <td class="align-middle">
-                                            <a href="{{route('editemployee',$employee->id)}}" class="btn btn-warning" >
-                                                Edit
-                                            </a>
-                                            <a href="{{route('destroyemployee',$employee->id)}}" class="btn btn-danger" >
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -69,4 +43,24 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $(function () {
+      let table = $('.employee_datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: "{{ route('indexemployee') }}",
+          columns: [
+              {data: 'name', name: 'name'},
+              {data: 'user.email', name: 'user.email'},
+              {data: 'session.name', name: 'session.name'},
+              {data: 'nip', name: 'nip'},
+              {data: 'division', name: 'division'},
+              {data: 'user.is_voted', name: 'user.is_voted'},
+              {data: 'action', name: 'action', orderable: false, searchable: false},
+          ]
+      });
+    });
+  </script>
 @endsection
