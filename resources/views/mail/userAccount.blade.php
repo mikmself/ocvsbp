@@ -225,7 +225,7 @@
                                     <td align="center"
                                         style="color: #ffffff; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 26px;">
                                         <div style="line-height: 26px;">
-                                            <a href="{{route('userLogin')}}" style="color: #ffffff; text-decoration: none;">LOGIN NOW</a>
+                                            <a href="{{route('login')}}" style="color: #ffffff; text-decoration: none;">LOGIN NOW</a>
                                         </div>
                                     </td>
                                 </tr>
