@@ -14,8 +14,8 @@
                         <a href="{{route('createemployee')}}" class="btn btn-success">Create</a>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
+                <div class="card-body pb-2">
+                    <div class="table-responsive">
                         <table class="table align-items-center mb-0 employee_datatable">
                             <thead>
                                 <tr>
