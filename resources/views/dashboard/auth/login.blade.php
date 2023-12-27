@@ -100,7 +100,12 @@
                 </div>
             </div>
         </section>
+
     </main>
+    <footer>
+        <div class="mt-5 text-center">&copy; by <a target="_blank" href="https://instagram.com/mikmself"><strong>Muhamad Irga Kh. M</strong></a> & <a target="_blank" href="https://instagram.com/hai.opit"><strong>Taufik Hidyatullah</strong></a></div>
+
+    </footer>
     <script src="/assets/js/core/popper.min.js"></script>
     <script src="/assets/js/core/bootstrap.min.js"></script>
     <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>

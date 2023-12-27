@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/download',[UserStudentController::class,'download'])->name('downloadexamplefilestudent');
         });
         Route::prefix('employee')->group(function () {
+
+            Route::get('/generatepassword',[AuthController::class,'generateEmployePassword'])->name('generatepasswordemployee');
             Route::get('/',[UserEmployeeController::class,'index'])->name('indexemployee');
             Route::get('/create',[UserEmployeeController::class,'create'])->name('createemployee');
             Route::post('/store',[UserEmployeeController::class,'store'])->name('storeemployee');

@@ -13,14 +13,15 @@
         }
     </style>
 </head>
-<body class="bg-secondary d-flex justify-content-center align-items-center">
+<body class=" d-flex justify-content-center align-items-center">
     <div class="content text-capitalize text-center">
-        <img src="/assets/img/welcome.png" alt="thanks ilustrator" class="w-80">
-        <h1 class="text-2xl ">welcome to ocvs app</h1>
-        <p class="text-white">{{auth()->user()->name}}</p>
+        <img src="/assets/img/welcome.svg" alt="thanks ilustrator" class="w-50">
+        <h1 class="text-2xl capitalize">Intermedia voting app</h1>
+        <p class="text-white px-5 py-2 btn btn-dark">{{auth()->user()->name}}</p>
         <br>
         <br>
-        <p class="text-danger">you will be redirected in <span id="counter">3</span> seconds</p>
+        <p class="d-flex mx-auto justify-content-center items-center gap-2 text-center">you will be redirected in <span id="counter" class="btn btn-sm btn-dark">3</span> seconds</p>
+        <div class="mt-5">&copy; by <a target="_blank" href="https://instagram.com/mikmself"><strong>Muhamad Irga Kh. M</strong></a> & <a target="_blank" href="https://instagram.com/hai.opit"><strong>Taufik Hidyatullah</strong></a></div>
     </div>
 </body>
 <script>
