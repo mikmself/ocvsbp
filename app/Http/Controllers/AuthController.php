@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -126,6 +127,23 @@ class AuthController extends Controller
             'password' => Hash::make($details['password'])
         ]);
         toastr()->success($user->name . ' account password have been successfully encrypted');
+        return back();
+    }
+    public function generateEmployePassword(){
+        $employees = Employee::all();
+        foreach ($employees as $employee) {
+            $user = User::whereId($employee->user_id)->first();
+            User::create([
+                'id' => Str::uuid(),
+                'name' => $employee->name,
+                'email' => $employee->user->email,
+                'password' => Hash::make($employee->nip),
+                'is_voted' => false,
+                'level' => "user",
+                'remember_token' => Str::random(36)
+            ]);
+        }
+        toastr()->success('employee account passwords have been successfully encrypted');
         return back();
     }
 }

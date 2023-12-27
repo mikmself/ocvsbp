@@ -9,10 +9,10 @@
 </head>
 
 <body class="bg-secondary">
+    <div class="d-flex justify-center align-items-center flex-row mt-5 p-5 gap-5">
     @foreach ($candidates as $candidate)
-        <div class="d-flex justify-center align-items-center flex-column mt-5">
-            <div class="card w-lg-50 w-90">
-                <img src="{{ $candidate->photo }}" class="card-img-top" alt="Candidate {{ $candidate->name }} photo">
+            <div class="card w-lg-50 w-90" style="overflow: hidden">
+                <img src="{{ $candidate->photo }}" class="card-img-top" style="width: 400px; height: 400px; object-fit: cover alt="Candidate {{ $candidate->name }} photo">
                 <div class="card-body">
                     <h5 class="card-title">{{ $candidate->name }}</h5>
                     <b>Vision :</b>
@@ -53,8 +53,12 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-    @endforeach
+        <footer>
+            <div class="mb-5 text-center text-white">&copy; by <a target="_blank" href="https://instagram.com/mikmself"><strong class="text-white">Muhamad Irga Kh. M</strong></a> & <a target="_blank" href="https://instagram.com/hai.opit"><strong class="text-white">Taufik Hidyatullah</strong></a></div>
+
+        </footer>
 </body>
 <script src="/assets/js/core/popper.min.js"></script>
 <script src="/assets/js/core/bootstrap.min.js"></script>

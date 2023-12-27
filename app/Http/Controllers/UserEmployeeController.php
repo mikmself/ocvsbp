@@ -48,7 +48,7 @@ class UserEmployeeController extends Controller
             'session_id' => 'required|numeric',
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'nip' => 'required|numeric',
+            'nip' => 'required',
             'division' => 'required'
         ]);
         if($validator->fails()){
@@ -66,7 +66,7 @@ class UserEmployeeController extends Controller
                     'id' => $userId,
                     'name' => $name,
                     'email' => $request->input('email'),
-                    'password' => Str::random(10),
+                    'password' => Hash::make($request->input('nip')),
                     'is_voted' => 'false'
                 ]);
                 $isCreatedEmployeeData = Employee::create([
@@ -109,7 +109,7 @@ class UserEmployeeController extends Controller
             'session_id' => 'required|numeric',
             'name' => 'required|string',
             'email' => 'required|email',
-            'nip' => 'required|numeric',
+            'nip' => 'required',
             'division' => 'required'
         ]);
         if ($request->input('newpassword') == null){
@@ -158,6 +158,7 @@ class UserEmployeeController extends Controller
         $isExist = isset($employee);
         if($isExist){
             $isDeleted = $employee->delete();
+            User::where('id',$employee->user_id)->delete();
             if($isDeleted){
                 toastr()->success('employee data successfully deleted');
                 return back();
